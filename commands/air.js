@@ -25,12 +25,12 @@ module.exports = {
 				const desc = {
 					temperature: parsed.current.weather.tp + `°C or ${Math.round(parsed.current.weather.tp*1.8+32)}°F`,
 					humidity: parsed.current.weather.hu + '%',
-					dew: dp + '°C | ' + (dp <= 13 ? 'dry' : (dp <= 19 ? 'humid' : 'muggy')),
+					dew: dp + '°C | ' + (dp < 4 ? 'dry' : (dp <= 16 ? 'comfy' : (dp < 19 ? 'humid' : 'muggy'))),
 				}
 
 				const airEmbed = new Discord.MessageEmbed()
 		        	.setColor('#f0932b')
-		        	.setTitle(parsed.current.pollution.aqius + ', mainly ' + parsed.current.pollution.mainus)
+		        	.setTitle(parsed.current.pollution.aqius)
 					.setDescription(`Air quality for the city of ${parsed.city}`)
 					.addFields(
 						{name: 'Temperature', value: desc.temperature, inline: true},

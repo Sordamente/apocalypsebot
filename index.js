@@ -31,7 +31,7 @@ client.on('message', message => {
     if (command.guildOnly && message.channel.type === 'dm') return message.reply('that\'s a server-only command chief');
 
     if (command.args && !args.length)
-		return message.channel.send(`smh, please format your command in the form \`${prefix}${command.name} ${command.usage}\``);
+		return message.channel.send('smh, you\'re using the command incorrectly');
 
     if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection());
 

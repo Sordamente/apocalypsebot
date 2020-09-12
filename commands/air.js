@@ -5,7 +5,6 @@ const https = require('https');
 module.exports = {
 	name: 'air',
 	description: 'gets information about air quality',
-    usage: '(optional postal code)',
     aliases: ['weather'],
     args: false,
 	execute(message, args) {
